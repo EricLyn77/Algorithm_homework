@@ -35,23 +35,37 @@ int main()
 	cout << endl;
 	system("pause");*/
 
-	vector<int> A = { 6, 0, 2, 0, 1, 3, 4, 6, 1, 3, 2 };
+	/*vector<int> A = { 6, 0, 2, 0, 1, 3, 4, 6, 1, 3, 2 };
 	reverse_counting_sort(find_vector_range(A), A);
+	system("pause");*/
+
+/*	vector<int> A = {9,6,8,2,5,7};
+	cout << "The original heap is: " << endl;
+	for (int j = 0; j < log2(A.size()); j++)
+	{
+		for (int z = 0; z < log2(A.size()) - j; z++)
+		{
+			cout << " ";
+		}
+		for (int k = 0; k < pow(2, j) && (pow(2, j) - 1) + k < A.size(); k++)
+		{
+			for (int z = 0; z < log2(A.size()) - j; z++)
+			{
+				cout << " ";
+			}
+			cout << A[(pow(2, j) - 1) + k];
+		}
+		cout << endl;
+	}
+	delete_heap(A);
+	system("pause");*/
+	vector<int> A = { 16,  14,  10,  8,  7,  9,  3,  2,  4,  1 };
+	vector<int> B = { 10,  3,  9,  7,  2,  11,  5,  1, 6 };
+	heap_judgement(B);
 	system("pause");
+
 }
 
-
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
 
 int max_position(vector<int> v, int size, int index, int &max)
 {
@@ -285,3 +299,182 @@ void reverse_counting_sort(int range, vector<int>A)
 		cout << B[a] << " ";
 	}
 }
+
+void max_heapify(vector<int>& A, int i, int n)
+{
+	int l = 2 * i  - 1;
+	int r = 2 * i;
+	int largest = i - 1;
+	if (l  <= n - 1 && A[l] > A[i - 1])
+		largest = l;
+	else if (l <= n - 1 && A[l] < A[i - 1])
+		largest = i - 1;
+	if (r <= n - 1 && A[r] > A[largest])
+		largest = r;
+	if (largest != i - 1)
+	{
+		int temp;
+		temp = A[i - 1];
+		A[i - 1] = A[largest];
+		A[largest] = temp;
+		cout << "rerange:" << endl;
+		for (int j = 0; j < log2(A.size()); j++)
+		{
+			for (int z = 0; z < log2(A.size()) - j; z++)
+			{
+				cout << " ";
+			}
+			for (int k = 0; k < pow(2, j) && (pow(2, j) - 1) + k < A.size(); k++)
+			{
+				for (int z = 0; z < log2(A.size()) - j; z++)
+				{
+					cout << " ";
+				}
+				cout << A[(pow(2, j) - 1) + k];
+			}
+			cout << endl;
+		}
+		max_heapify(A, largest + 1, n);
+	}
+}
+
+void build_max_heap(vector<int>& A)
+{
+	int n = A.size();
+	for (int i = ceil(n / 2); i >= 1; i--)
+	{
+		max_heapify(A, i, n);
+	}
+}
+
+int heap_extract_max(vector<int>& A)
+{
+	build_max_heap(A);
+	int max = A[0];
+	int n = A.size();
+	A[0] = A[n - 1];
+	A.pop_back();
+	max_heapify(A, 1, n - 1);
+	return max;
+}
+
+int search_heap(vector<int>& A,int i, int v)
+{
+	int a = -1, b = -1;
+	if(A[i-1] == v)
+		return i;
+	if (A[i - 1] > v)
+	{
+		if(2*i<=A.size())
+			a = search_heap(A, 2 * i, v);
+		if(2*i+1<=A.size())
+			b = search_heap(A, 2 * i + 1, v);
+	}
+	return ((a>b)?a:b);
+}
+
+void delete_heap(vector<int>& A)
+{
+	int value;
+	cout << "input search value: ";
+	cin >> value;
+	int i;
+	i = search_heap(A, 1, value);
+	
+	
+	if (i == A.size())
+	{
+		cout << "The position at: " << i << endl;
+		A.pop_back();
+	}
+	else if(i>-1)
+	{
+		cout << "The position at: " << i << endl;
+		int temp;
+		temp = A[i - 1];
+		A[i - 1] = A[A.size() - 1];
+		A[A.size() - 1] = A[i - 1];
+		A.pop_back();
+		cout << "After delete searched value, the heap is: " << endl;
+		for (int j = 0; j < log2(A.size()); j++)
+		{
+			for (int z = 0; z < log2(A.size()) - j; z++)
+			{
+				cout << " ";
+			}
+			for (int k = 0; k < pow(2, j) && (pow(2, j) - 1) + k < A.size(); k++)
+			{
+				for (int z = 0; z < log2(A.size()) - j; z++)
+				{
+					cout << " ";
+				}
+				cout << A[(pow(2, j) - 1) + k];
+			}
+			cout << endl;
+		} 
+		build_max_heap(A);
+	}
+	else if (i == -1)
+	{
+		cout << "can't find searched value" << endl;
+	}
+}
+
+void heap_judgement(vector<int>& A)
+{
+	int l = 1;
+	int r = 2;
+	int i = 1;
+	int largest = 0;
+	int n = A.size();
+	int a = 1, b = 1;
+	if (l <= n - 1 && A[l] > A[i - 1])
+		largest = l;
+	else if (l <= n - 1 && A[l] < A[i - 1])
+		largest = i - 1;
+	if (r <= n - 1 && A[r] > A[largest])
+		largest = r;
+	if (largest == i - 1)
+	{
+		if (2 * i <= A.size())
+			a = heap_judgement(A, 2 * i, n);
+		if (2 * i + 1 <= A.size())
+			b = heap_judgement(A, 2 * i + 1, n);
+	}
+	else
+	{
+		cout << "Not a heap" << endl;
+	}
+	if (a == 1 && b == 1)
+	{
+		cout << "Yes,hip" << endl;
+	}
+	else
+	{
+		cout << "Not a heap" << endl;
+	}
+
+}
+
+int heap_judgement(vector<int>& A, int i, int n)
+{
+	int l = 2*i -1;
+	int r = 2*i;
+	int a = 1, b = 1;
+	if (l <= n - 1&&A[l] > A[i - 1])
+		return -1;
+	if (r <= n - 1 && A[r] > A[i - 1])
+		return -1;
+	if (2 * i <= A.size())
+		a = heap_judgement(A, 2 * i, n);
+	if (2 * i + 1 <= A.size())
+		b = heap_judgement(A, 2 * i + 1, n);
+	if (a == 1 && b == 1)
+		return 1;
+	else
+		return -1;
+}
+
+
+
+
