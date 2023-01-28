@@ -1,27 +1,28 @@
 ﻿  Algorithm hw.cpp
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(190): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(193): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(200): warning C4018: '<': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(204): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(209): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(213): warning C4018: '>=': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(215): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(218): warning C4018: '>=': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(220): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(226): warning C4018: '<': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(237): warning C4018: '<': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(262): warning C4018: '<': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(286): warning C4018: '<': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(291): warning C4018: '<': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(297): warning C4018: '<': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(333): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(344): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(368): warning C4018: '<=': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(370): warning C4018: '<=': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(411): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(439): warning C4018: '<=': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(441): warning C4018: '<=': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(468): warning C4018: '<=': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(470): warning C4018: '<=': signed/unsigned mismatch
-c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(105): warning C4715: 'max_position': not all control paths return a value
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(203): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(206): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(213): warning C4018: '<': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(217): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(222): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(226): warning C4018: '>=': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(228): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(231): warning C4018: '>=': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(233): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(239): warning C4018: '<': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(250): warning C4018: '<': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(275): warning C4018: '<': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(299): warning C4018: '<': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(304): warning C4018: '<': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(310): warning C4018: '<': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(346): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(357): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(381): warning C4018: '<=': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(383): warning C4018: '<=': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(424): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(452): warning C4018: '<=': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(454): warning C4018: '<=': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(481): warning C4018: '<=': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(483): warning C4018: '<=': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(648): warning C4018: '<': signed/unsigned mismatch
+c:\users\wzr11\source\repos\algorithm hw\algorithm hw\algorithm hw.cpp(118): warning C4715: 'max_position': not all control paths return a value
   Algorithm hw.vcxproj -> C:\Users\wzr11\source\repos\Algorithm hw\Debug\Algorithm hw.exe

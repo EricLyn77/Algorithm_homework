@@ -16,3 +16,6 @@ int search_heap(vector<int>&,int,int);
 void delete_heap(vector<int>&);
 void heap_judgement(vector<int>&);
 int heap_judgement(vector<int>&,int,int);
+int laser();
+void laser_pc();
+void laser_pd();

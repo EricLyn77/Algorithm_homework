@@ -3,8 +3,13 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include "Algorithm hw.h"
 using namespace std;
+
+int drone_arrival[5] = { 0,1,10,10,1 };
+int protect_function[5] = { 0,1,2,4,8 };
+
 int main()
 {
 	/*vector<int> a{1,4,9,3,4,9,5,6,9,3,7};
@@ -39,7 +44,7 @@ int main()
 	reverse_counting_sort(find_vector_range(A), A);
 	system("pause");*/
 
-/*	vector<int> A = {9,6,8,2,5,7};
+	/*vector<int> A = {9,6,8,2,5,7};
 	cout << "The original heap is: " << endl;
 	for (int j = 0; j < log2(A.size()); j++)
 	{
@@ -59,10 +64,18 @@ int main()
 	}
 	delete_heap(A);
 	system("pause");*/
-	vector<int> A = { 16,  14,  10,  8,  7,  9,  3,  2,  4,  1 };
+	/*vector<int> A = { 16,  14,  10,  8,  7,  9,  3,  2,  4,  1 };
 	vector<int> B = { 10,  3,  9,  7,  2,  11,  5,  1, 6 };
+	cout<<"The input array is:" <<endl;
+	for (int i = 0; i < B.size(); i++)
+	{
+		cout << B[i] << " ";
+	}
+	cout << endl;
 	heap_judgement(B);
-	system("pause");
+	system("pause");*/
+	
+	laser_pd();
 
 }
 
@@ -475,6 +488,168 @@ int heap_judgement(vector<int>& A, int i, int n)
 		return -1;
 }
 
+int laser()
+{
+	int M[5] = {0};
+	int a[5][5];
+	fstream laser_output;
+	laser_output.open("laser_pb_out.txt", ios::out | ios::trunc);
+	laser_output << "1st" << "  " << "2nd" << "  " << "3rd" << "  " << "4th" << endl;
+	for (int i = 1; i <= 4; i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			a[i][j] = ((drone_arrival[i] < protect_function[i - j]) ? drone_arrival[i] : protect_function[i - j]);
+		}
+	}
+	for (int i = 1; i <= 4; i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			int temp;
+			temp = (((a[i][j] + M[j]) > M[i - 1])? (a[i][j] + M[j]) : M[i - 1]);
+			if (temp > M[i])
+				M[i] = temp;
+		}
+		laser_output <<"  "<< M[i] << "  ";
+	}
+	laser_output << endl;
+	laser_output << "----------------------------------------------" << endl;
+	laser_output <<"Max drones harmless are: " <<M[4];
 
+	return M[4];
+}
+
+void laser_pc()
+{
+	int M[5] = { 0 };
+	int a[5][5];
+	int opt[5][5] = { 0 };
+	fstream laser_output;
+	int choose[5] = { -1 };
+	laser_output.open("laser_pc_out.txt", ios::out | ios::trunc);
+	vector<char> choose_final;
+	for (int i = 1; i <= 4; i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			a[i][j] = ((drone_arrival[i] < protect_function[i - j]) ? drone_arrival[i] : protect_function[i - j]);
+		}
+	}
+	for (int i = 1; i <= 4; i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			int temp;
+			int choose_it = 0;
+			if (((a[i][j] + M[j]) > M[i - 1]))
+			{
+				temp = a[i][j] + M[j];
+				choose_it = j;
+			}
+			else
+			{
+				temp = M[i - 1];
+				choose_it = 0;
+			}
+			opt[i][j] = temp;
+			if (temp > M[i])
+			{
+				if (choose_it != 0)
+				{
+					choose[i] = j;
+				}
+				M[i] = temp;
+			}
+
+		}
+	}
+	laser_output << "----------------------------------------------" << endl;
+	laser_output << "    Time    " << "1st" << "          " << "2nd" << "          " << "3rd" << "           " << "4th" << endl;
+	laser_output << "choice is" << "   ";
+	for (int i = 1; i < 5; i++)
+	{
+		if (choose[i] != -1)
+			laser_output << "opt(" << choose[i] << ")" << "+" << a[i][choose[i]] << "    ";
+		else
+			laser_output << "opt(" << i - 1 << ")" << "    ";
+		
+	}
+
+}
+
+void laser_pd()
+{
+	int M[5] = { 0 };
+	int a[5][5];
+	int opt[5][5] = {0};
+	fstream laser_output;
+	int choose[5] = {0};
+	laser_output.open("laser_pd_out.txt", ios::out | ios::trunc);
+	vector<char> choose_final;
+	for (int i = 1; i <= 4; i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			a[i][j] = ((drone_arrival[i] < protect_function[i - j]) ? drone_arrival[i] : protect_function[i - j]);
+		}
+	}
+	for (int i = 1; i <= 4; i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			int temp;
+			int choose_it = 0;
+			if (((a[i][j] + M[j]) > M[i - 1]))
+			{
+				temp = a[i][j] + M[j];
+				choose_it = 1;
+			}
+			else
+			{
+				temp = M[i - 1];
+			}
+			opt[i][j] = temp;
+			if (temp > M[i])
+			{
+				if (choose_it != 0)
+				{
+					choose[i] = j;
+				}
+				M[i] = temp;
+			}
+				
+		}
+	}
+	for (int i = 0; i < 5; i++)
+	{
+		cout << choose[i] << endl;
+	}
+	int b = 4;
+	if (choose[b] != 0)
+	{
+		choose_final.push_back('Y');
+	}
+	for (int i = 1; i < 4; i++)
+	{	
+		b = choose[b];
+		if (4-i == b)
+		{
+			choose_final.push_back('Y');
+		}
+		else
+		{
+			choose_final.push_back('N');
+		}
+	}
+	laser_output << "----------------------------------------------" << endl;
+	laser_output << "    Time    "<< "1st" << "  " << "2nd" << "  " << "3rd" << "  " << "4th" << endl;
+	laser_output << "use or not" << "   ";
+	for (int i = 0; i < choose_final.size(); i++)
+	{
+		laser_output << choose_final[choose_final.size()-i-1] << "    ";
+	}
+
+}
 
 
